@@ -1,0 +1,16 @@
+{
+  "license": "UNLICENSED",
+  "description": "Rock, Paper, Scissors programming challenge",
+  "scripts": {
+    "play": "ts-node src/main.ts"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.0",
+    "@types/node": "^15.12.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}
