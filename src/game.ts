@@ -1,3 +1,4 @@
+import Result from './result';
 import { Choice, Playable, PlayerConstructor } from './types';
 
 class Game {
@@ -64,21 +65,11 @@ class Game {
     }
   }
 
-  results(): string {
-    let match =
-      `${this.player1.name()} vs. ${this.player2.name()}\n` +
-      `  ${this.player1.name()}: ${this.score1}\n` +
-      `  ${this.player2.name()}: ${this.score2}\n`;
-
-    if (this.score1 === this.score2) {
-      match += '  Draw\n';
-    } else if (this.score1 > this.score2) {
-      match += `  ${this.player1.name()} Wins\n`;
-    } else {
-      match += `  ${this.player2.name()} Wins\n`;
-    }
-
-    return match;
+  results(): Result {
+    return new Result(
+      { name: this.player1.name(), score: this.score1 },
+      { name: this.player2.name(), score: this.score2 }
+    );
   }
 
   protected draw(hand1: Choice, hand2: Choice): void {
