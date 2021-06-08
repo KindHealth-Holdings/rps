@@ -25,11 +25,31 @@ Anything else is a "draw".
 nvm use && yarn
 ```
 
+## Game Mechanics
+
+The main game loop performs the following in order:
+
+1. Pulls 2 separate player definitions from the classes defined inside of the
+   `src/players` directory
+1. Initializes each player with the class name of the opponent — each player
+   receives a value for `opponentName` as part of its constructor
+1. Calls the `choose()` method for each player to determine that player's
+   choice, which can be `'rock'`, `'paper'`, or `'scissors'`
+1. Determines the winner of the round and informs each player of their choice,
+   their opponent's choice, and the outcome of the round: `'win'`, `'lose'`, or
+   `'draw'`
+1. After performing 1000 rounds, prints out the results of the game and moves on
+   to the next pairing of players
+
 ## Defining Players
 
 The `src/players` directory is where new player definitions can be placed. Each
 file exports a default class definition that adheres to the `Playable`
-interface. For example, a player that always plays 'paper':
+interface.
+
+All players must implement the `choose()` method that has a return
+type of `Choice` — namely the string `'rock'`, `'paper'`, or `'scissors'`. As
+an example, here is a player that always plays `'paper'`:
 
 ```ts
 // src/players/paper.ts
@@ -42,7 +62,10 @@ export default class PaperPlayer extends Player {
 }
 ```
 
-## Playing a Game
+As your players become more advanced, there are other hooks available as
+described in the [`Player`][2] base class.
+
+## Testing Your Players
 
 You need to create at least 2 players, then you can run `play` to pair each
 defined player against the others:
@@ -72,3 +95,4 @@ yarn play ScissorPlayer RockPlayer
 
 
 [1]: http://rubyquiz.com/quiz16.html
+[2]: ./src/types.ts
