@@ -21,6 +21,6 @@ for (let i = 0; i < players.length; i++) {
     const game = new Game(players[i], players[j]);
     game.play(numRounds);
 
-    console.log(game.results());
+    console.table(game.results());
   }
 }
