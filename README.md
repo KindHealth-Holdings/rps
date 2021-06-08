@@ -51,4 +51,24 @@ defined player against the others:
 yarn play
 ```
 
+## Playing Games With Specific Players
+
+When you have more than 2 players you may want to see how a specific player performs
+against all the other players. Say you had a PaperPlayer, RockPlayer, and Scissor Player and you
+only cared about the ScissorPlayer's performance you can run play like so:
+
+```
+yarn play ScissorPlayer
+```
+
+this will run 2 games ScissorPlayer vs. RockPlayer and ScissorPlayer vs. PaperPlayer
+
+If you were only concerned with how two specific players performed when playing against eachother you can
+do that as well. Say you only want to play RockPlayer against ScissorPlayer, the command would be:
+
+```
+yarn play ScissorPlayer RockPlayer
+```
+
+
 [1]: http://rubyquiz.com/quiz16.html
